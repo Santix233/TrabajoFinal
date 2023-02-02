@@ -1,0 +1,87 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block title %}
+<h1 class="mb-5">Ver Todos los Datos</h1>
+{% endblock %}
+
+
+
+{% block titulo %}
+<title>Ver Todos Los Datos</title>
+{% endblock %}
+
+{% block linknuevo %}
+{% if user.is_authenticated %}
+<a class="navbar-brand" href="{% url 'Inix' %}">Inicio</a>
+<a class="btn btn-primary" href="{% url 'detalle' %}">Datos Detallados</a>
+<a class="btn btn-primary" href="{% url 'Busqueda2' %}">Buscar en la BD</a>
+<a class="btn btn-primary" href="http://127.0.0.1:8000/MS/Facu">Chat</a>
+<a class="btn btn-primary" href="{% url 'inbox'  %}">Inbox</a>
+<h5>Bienvenido {{ user.username }}</h5>
+<a class="btn btn-danger" href="{% url 'logout' %}">Salir</a>
+{% else %}
+
+
+{% endif %}
+
+{% endblock %}
+
+{% block contenido2 %}
+
+<FONT SIZE=6 COLOR="brown">Todos Los Bancos</FONT> 
+
+
+<h2>{{mensaje}}</h2>
+<h2>{{mensaje1}}</h2>
+
+
+    {% for i in bancos %}
+
+
+        <h4><li>{{i.Nombre}} ,{{i.Pais}}</li></h4>
+
+
+        <a class="btn-sm btn-danger" href="{% url 'eliminar1' i.id %}">Eliminar</a>
+        <a class="btn-sm btn-success" href="{% url 'edit2' i.id %}">Editar</a> 
+
+        <br>
+        <br>
+
+    {% endfor %}
+
+    
+    
+    
+    <br>
+    <a class="btn btn-primary" href="http://127.0.0.1:8000/Formularios/DatosBancarios">Agregar Datos Bancarios</a>
+    <br>
+    ------------------------------
+    <br>
+    <FONT SIZE=6 COLOR="brown">Todos Los Usuarios</FONT>
+
+    {% for n in ident %}
+
+         <h4><li>{{n.Nombre}} {{n.Apellido}}</li></h4>
+
+         
+         
+         <a class="btn-sm btn-danger" href="{% url 'eliminar' n.id %}">Eliminar</a>
+         <a class="btn-sm btn-success" href="{% url 'edit1' n.id %}">Editar</a>
+    
+         <br>
+         <br>
+    {% endfor %}
+
+    <br>
+    <a class="btn btn-primary" href="http://127.0.0.1:8000/Formularios/DatosPersonales">Agregar Datos Personales</a>
+    <br>
+
+
+    
+
+    
+    
+
+{% endblock %}

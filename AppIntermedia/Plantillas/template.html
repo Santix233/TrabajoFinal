@@ -1,0 +1,56 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block titulo %}
+<title>Datos Financieros</title>
+
+{% endblock %}
+
+{% block title %}
+<h1 class="mb-5">Agregar Datos Financieros</h1>
+{% endblock %}
+
+
+
+{% block linknuevo %}
+{% if user.is_authenticated %}
+<a class="navbar-brand" href="{% url 'Inix' %}">Inicio</a>
+<a class="btn btn-primary" href="{% url 'Datos' %}">Datos Personales</a>
+<a class="btn btn-primary" href="http://127.0.0.1:8000/MS/Facu">Chat</a>
+<a class="btn btn-primary" href="{% url 'inbox'  %}">Inbox</a>
+<h5>Bienvenido {{ user.username }}</h5>
+<a class="btn btn-danger" href="{% url 'logout' %}">Salir</a>
+{% else %}
+<a class="navbar-brand" href="{% url 'Inix' %}">Inicio</a>
+<a class="btn btn-primary" href="http://127.0.0.1:8000/Login">Iniciar Seccion</a>
+<a class="btn btn-primary" href="{% url 'Busqueda2' %}">Registrarse</a>
+{% endif %}
+
+{% endblock %}
+
+{% block datosbancarios %}
+
+
+<h2>Datos Financieros</h2>
+
+<form action="{% url 'Bancario' %}" method="POST">{% csrf_token %}
+    <table>
+    
+    {{ formulario.as_table}}
+
+
+
+    <table>
+
+   <input type="submit" color="white" value="Enviar">
+    
+
+
+    <br>
+
+    <a class="fcc-btn" href="http://127.0.0.1:8000/Buscar">Buscar en la Base de Datos</a>
+
+    
+    
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+
+{% block title %}
+<h1 class="mb-5">Datos Encontrados</h1>
+{% endblock %}
+{% block contenido1 %}
+
+<h2>Resultados De Busqueda</h2>
+
+<br>
+
+<h2>{{ mensaje }}</h2>
+
+{% for var in var %}
+
+<h3>{{ var.Nombre }} , {{ var.Pais }}</h3>
+
+
+{% endfor %}
+
+<br>
+    
+    <a class="fcc-btn" href="http://127.0.0.1:8000/Buscar">Volver a Buscar</a>
+
+
+{% endblock %}

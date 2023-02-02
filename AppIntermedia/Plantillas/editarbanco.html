@@ -1,0 +1,57 @@
+{% extends "Formularios.html" %}
+
+{% load static %}
+
+{% block title %}
+<h1 class="mb-5">Editar</h1>
+{% endblock %}
+
+
+{% block titulo1 %}
+<title>Editar Entidad Financiera</title>
+{% endblock %}
+
+
+{% block linknuevo %}
+
+
+<a class="navbar-brand" href="{% url 'Inix' %}">Inicio</a>
+<a class="btn btn-primary" href="{% url 'Busqueda2' %}">Buscar en la BD</a>
+<a class="btn btn-primary" href="http://127.0.0.1:8000/MS/Facu">Chat</a>
+<a class="btn btn-primary" href="{% url 'inbox'  %}">Inbox</a>
+<a class="btn btn-primary" href="{% url 'agregarAvatar' %}">Agregar Avatar</a>
+<h5>Bienvenido {{ user.username }}</h5>
+<a class="btn btn-danger" href="{% url 'logout' %}">Salir</a>
+
+
+
+
+{% endblock %}
+
+
+
+
+{% block contenido %}
+
+<h2>Editar Datos Bancarios</h2>
+
+
+<form action="{% url 'edit2' user.id %}" method="POST">{% csrf_token %}
+    
+    <table>
+
+    {{ form.as_table }}
+
+    </table>
+
+
+    <input type="submit" color="white" value="Guardar Cambios">
+
+    
+
+    
+    <br>
+    
+    <a class="fcc-btn" href="http://127.0.0.1:8000/Buscar">Buscar en la Base de Datos</a>
+
+{% endblock %}

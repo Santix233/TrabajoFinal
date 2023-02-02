@@ -1,0 +1,89 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block title %}
+<h1 class="mb-5">Menu De Paginas</h1>
+{% endblock %}
+
+{% block titulo %}
+<title>Menu De Pagina</title>
+{% endblock %}
+
+{% block linknuevo %}
+
+{% if user.is_authenticated %}
+<a class="navbar-brand" href="{% url 'Inix' %}">Inicio</a>
+<a class="btn btn-primary" href="{% url 'Busqueda2' %}">Buscar en la BD</a>
+<a class="btn btn-primary" href="http://127.0.0.1:8000/MS/Facu">Chat</a>
+<a class="btn btn-primary" href="{% url 'inbox'  %}">Inbox</a>
+<a class="btn btn-primary" href="{% url 'agregarAvatar' %}">Agregar Avatar</a>
+<h5>Bienvenido {{ user.username }}</h5>
+<a class="btn btn-danger" href="{% url 'logout' %}">Salir</a>
+{% else %}
+
+
+{% endif %}
+{% endblock %}
+
+
+
+{% block contenidonuevo %}
+
+<h1>Secciones</h1>
+
+{% if not user.is_authenticated %}
+ 
+<FONT SIZE=6 COLOR="brown">Si no inicia Seccion no podra navegar por esta WEB</FONT> 
+
+{% endif %}
+
+<h3>Avatar:</h3>
+
+<a class="btn btn-primary" href="http://127.0.0.1:8000/agregarAvatar">Agregar Avatar</a>
+<br>
+------------------------------------------------------------------------------------------
+<br>
+
+<h3>Formularios:</h3>
+                <a class="btn btn-primary" href="http://127.0.0.1:8000/Login">Iniciar Seccion</a>
+                <br>
+                <br>
+                <a class="btn btn-primary" href="http://127.0.0.1:8000/CrearUser">Registrarse</a>
+                <br>
+                <br>
+                <a class="btn btn-primary" href="http://127.0.0.1:8000/Formularios/DatosBancarios">Llenar Datos Financieros</a>
+                <br>
+                <br>
+                <a class="btn btn-primary" href="http://127.0.0.1:8000/Formularios/DatosPersonales">Llenar Datos Personales</a>
+<br>
+------------------------------------------------------------------------------------------
+<br>
+<h3>Formularios De Busqueda:</h3>
+
+                <a class="btn btn-primary" href="http://127.0.0.1:8000/Buscar">Buscar Por Datos Financieros</a>
+                <br>
+                <br>
+                <a class="btn btn-primary" href="http://127.0.0.1:8000/Buscar">Buscar Por Datos Personales</a>
+<br>
+------------------------------------------------------------------------------------------
+<br>
+<h3>Ver todos los Datos Registrados:</h3>
+
+<a class="btn btn-primary" href="http://127.0.0.1:8000/Leertodo">Ver Todos los Datos</a>
+<br>
+<br>
+<a class="btn btn-primary" href="http://127.0.0.1:8000/Detalles">Ver Los Datos Detallados</a>
+<br>
+------------------------------------------------------------------------------------------
+<br>
+<h3>Chats</h3>
+<a class="btn btn-primary" href="http://127.0.0.1:8000/MS/Facu">Chat</a>
+<br>
+<br>
+<a class="btn btn-primary" href="http://127.0.0.1:8000/DM/">Inbox</a>
+
+
+
+
+{% endblock %}
