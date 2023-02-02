@@ -2,6 +2,8 @@ from django.db import models
 from django.conf import settings
 import uuid
 
+from ckeditor.fields import RichTextField
+
 from django.apps import apps
 
 from django.db.models import Count
@@ -20,7 +22,7 @@ class ModelBase(models.Model):
 class CanalMensaje(ModelBase):
 	canal   = models.ForeignKey("Canal", on_delete=models.CASCADE)
 	usuario = models.ForeignKey(User, on_delete=models.CASCADE)
-	texto =  models.TextField()
+	texto =  RichTextField()
 
 class CanalUsuario(ModelBase):
 	canal  = models.ForeignKey("Canal", null=True, on_delete=models.SET_NULL)
